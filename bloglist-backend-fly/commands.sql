@@ -9,8 +9,7 @@ CREATE TABLE blogs (
     likes integer DEFAULT 0
 );
 
-Dan Abramov: 'On let vs const', 0 likes
-Laurenz Albe: 'Gaps in sequences in PostgreSQL', 0 likes
+
 insert into blogs (author, url, title, likes) values ('Dan Abramov', 'www.dan.com', 'On let vs const', 0);
 insert into blogs (author, url, title, likes) values ('Laurenz Albe', 'www.laurenz.com', 'Gaps in sequences in PostgreSQL', 0);
 insert into blogs (author, url, title, likes) values ('Henry Wu', 'www.happy.com', 'Merry Christmas', 6);

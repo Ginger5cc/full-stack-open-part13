@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs/ HTTP/1.1
+content-type: application/json
+
+{
+  "author": "Elliot Alderson",
+  "url": "www.city.com",
+  "title": "Happy World",
+  "likes" : 18
+} 
