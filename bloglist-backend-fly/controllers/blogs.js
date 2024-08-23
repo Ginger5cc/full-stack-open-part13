@@ -1,5 +1,6 @@
+const jwt = require('jsonwebtoken')
 const router = require('express').Router()
-
+const { SECRET } = require('../util/config')
 const { Blog, User } = require('../models')
 
 const blogFinder = async(req, res, next) => {
@@ -41,7 +42,7 @@ const tokenExtractor = (req, res, next) => {
   next()
 }
 
-router.post('/', async (req, res) => {
+router.post('/', tokenExtractor, async (req, res) => {
     const user = await User.findByPk(req.decodedToken.id)
     const blog = await Blog.create({...req.body, userId: user.id, date: new Date()})
     return res.json(blog)
@@ -54,9 +55,12 @@ router.put('/:id', blogFinder, async (req, res) => {
 })
 
 
-router.delete('/:id', blogFinder, async (req, res) => {
-    await req.blog.destroy();
-    res.json(req.blog)
+router.delete('/:id',tokenExtractor, blogFinder, async (req, res) => {
+    const user = await User.findByPk(req.decodedToken.id)
+    if (req.blog.userId == user.id) {
+      await req.blog.destroy();
+      res.json(req.blog)
+    } else return res.status(401).json({ error: 'user not match' })
 })
 
 module.exports = router
