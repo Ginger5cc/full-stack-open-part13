@@ -1,10 +1,11 @@
 POST http://localhost:3001/api/blogs/ HTTP/1.1
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhZGdpcmxAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTcyNDUxNzc3N30.srNnwm02t-GEOhODHq0hH5Qw5d3Kk-p53RVk3dxJqEE
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhZGdpcmxAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTcyNDUyMDI4OX0.LdMjmJ46u0An8p050Iz1Gi37Y72aCt6VlyIuyFM_Y5M
 
 {
-    "title": "react time",
+    "title": "React Time",
     "author": "johnson",
     "url": "www.reacttime.com", 
-    "likes" : 20
+    "likes" : 50,
+    "year" : 2024
 }
