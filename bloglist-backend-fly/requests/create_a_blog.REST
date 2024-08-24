@@ -3,8 +3,8 @@ content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxvdmVseWdpcmxAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNDQ0NzgwMH0.N8EKSSlThvfO_e5zq5GOM5UB2cwkL-BYU31GCAtP0jU
 
 {
-    "title": "Blog 10",
-    "author": "HappyWorld Again",
-    "url": "www.blog10.com", 
-    "likes" : 10
+    "title": "react time",
+    "author": "johnson",
+    "url": "www.reacttime.com", 
+    "likes" : 1
 }
