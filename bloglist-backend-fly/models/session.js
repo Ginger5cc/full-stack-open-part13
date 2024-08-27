@@ -10,14 +10,19 @@ Session.init({
     primaryKey: true,
     autoIncrement: true
   },
-  userId: {
+  userid: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: { model: 'users', key: 'id' },
   },
   token: {
     type: DataTypes.STRING,
-  }
+  },
+  expire: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  },
 }, {
   sequelize,
   underscored: true,

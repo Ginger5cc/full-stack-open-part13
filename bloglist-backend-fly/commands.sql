@@ -15,12 +15,22 @@ insert into blogs (author, url, title, likes) values ('Laurenz Albe', 'www.laure
 insert into blogs (author, url, title, likes) values ('Henry Wu', 'www.happy.com', 'Merry Christmas', 6);
 insert into blogs (author, url, title, likes) values ('Billie', 'www.billie.com', 'Happy Birthday', 17);
 
-CREATE FUNCTION users_update() RETURNS TRIGGER AS $$
+CREATE FUNCTION sessions_update() RETURNS TRIGGER AS $$
 BEGIN
-  UPDATE users SET disables = concat(NEW.column1,  ' - ', NEW.column2) WHERE column1 = NEW.column1;
+  UPDATE sessions SET expire = true where "userid" = NEW.id;
   RETURN new;
 END;
 $$ LANGUAGE plpgsql;
 
--- create trigger that calls function 'users_update' after each update into "users"
-CREATE TRIGGER users_update_trigger AFTER UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE users_update();
+CREATE TRIGGER users_update_trigger
+AFTER UPDATE ON users
+FOR EACH ROW
+WHEN (NEW.disable = true)
+EXECUTE FUNCTION sessions_update();
+
+update users set disable = true where id = 2;
+
+drop trigger users_update_trigger on users;
+drop function sessions_update;
+
+delete from migrations where name = '20240827_04_add_expire_column.js';

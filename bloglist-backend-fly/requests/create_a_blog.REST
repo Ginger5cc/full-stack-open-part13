@@ -1,6 +1,6 @@
-POST http://localhost:3001/api/blogs/ HTTP/1.1
+POST http://localhost:3003/api/blogs/ HTTP/1.1
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhZGdpcmxAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTcyNDUyMDI4OX0.LdMjmJ46u0An8p050Iz1Gi37Y72aCt6VlyIuyFM_Y5M
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhZGdpcmxAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTcyNDc3Mzc0OH0.c-ab7qp5FtiOJWXMCoE6hcyCLJ4u3uLjINpEBBWah8I
 
 {
     "title": "React Time",

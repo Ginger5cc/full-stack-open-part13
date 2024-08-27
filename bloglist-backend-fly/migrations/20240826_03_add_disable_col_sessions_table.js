@@ -3,7 +3,12 @@ const { DataTypes } = require('sequelize')
 module.exports = {
   up: async ({ context: queryInterface }) => {
     await queryInterface.createTable('sessions', {
-      userId: {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      userid: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: { model: 'users', key: 'id' },
